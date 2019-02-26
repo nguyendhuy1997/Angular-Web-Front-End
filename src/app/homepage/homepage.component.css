@@ -1,0 +1,21 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+  tr:first-child{
+      background-color: orange;
+      text-align: center;
+  }
+  tr:nth-child(even) {
+  }
+  h2{
+    text-align: center;
+  }

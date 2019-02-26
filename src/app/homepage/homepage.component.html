@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<h2>HOME PAGE</h2>
+<app-detail></app-detail>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let item of products, let i = index">
+    <td>{{item.name}}</td>
+    <td><a routerLink="detail/{{i}}"><img src="{{item.image}}" height="100px" width="100px" alt=""></a> </td>
+    <td>{{formatNumber(item.price)}}</td>
+    <td>{{item.des}}</td>
+    <td><button (click) = "getSelectedProduct(i)">Addcart</button></td>
+  </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<h2>Responsive Checkout Form</h2>
+<p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form [formGroup]='formdata' (ngSubmit)="onSubmit(formdata.value)">
+      
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname"name="username" formControlName="username" placeholder="John M. Doe">
+            <div *ngIf="formdata.controls.username.invalid && (formdata.controls.username.dirty || formdata.controls.username.touched)">
+
+                <div *ngIf="formdata.controls.username.errors.required">
+                    Name is required.
+                </div>
+            
+            </div>
+    
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email"name="email" formControlName="email" placeholder="john@example.com">
+            <div *ngIf="formdata.controls.email.invalid && (formdata.controls.email.dirty || formdata.controls.email.touched)">
+
+                <div *ngIf="formdata.controls.email.errors.required">
+                    Email is required.
+                </div>
+                <div *ngIf="formdata.controls.email.errors.email">
+                    Email is wrong type.
+                </div>
+            
+            </div>
+    
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"name="address" formControlName="address" >
+            <div *ngIf="formdata.controls.address.invalid && (formdata.controls.address.dirty || formdata.controls.address.touched)">
+
+                <div *ngIf="formdata.controls.address.errors.required">
+                    Address is required.
+                </div>
+            
+            </div>
+    
+            <input type="submit" [disabled]="!formdata.valid" value="Payment" class="btn">
+            </div>
+            </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-25">
+    <div  class="container">
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
+      <p *ngFor="let item of cart,let i = index" ><a href="#">{{item.name}}</a> <input type='number' value="{{item.sl}}" class='input-sl'  > <span class="price">{{item.price*item.sl}}</span><button (click)="delete(i)">delete</button><button (click)="update(i)">update</button ></p>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>{{total}}</b></span></p>
+    </div>
+  </div>
+</div>

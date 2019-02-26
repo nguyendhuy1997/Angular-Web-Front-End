@@ -1,0 +1,31 @@
+<div *ngIf="selectedProduct">
+    <form id="form">
+      <input [(ngModel)]='selectedProduct.name' value='selected.name' name="name" type="text" required placeholder="name">
+      <input [(ngModel)]='selectedProduct.price' value='selected.price' name="price" type="text" required placeholder="thumbnail">
+      <input [(ngModel)]='selectedProduct.image'  value='selected.image' name="image" type="text" required placeholder="age">
+      <input [(ngModel)]='selectedProduct.des'  value='selected.des' name="decription" type="text" required  placeholder="city">
+      <input type="button" value="Add" (click)="addCrud(selectedProduct)">
+      <input type="button" value="Update" (click)="updateCrud()" >
+    </form>
+  </div>
+<table id="models">
+    <tr>
+      <th>Name</th>
+      <th>Picture</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Selected</th>
+      <th>Deleted</th>
+    </tr>
+    <tr *ngFor="let item of products,let i =index">
+      <td>{{item.name}}</td>
+      <td>
+        <img src="{{item.image}}" alt="" style="width: 100px; height: 100px;">
+      </td>
+      <td>{{item.price}}</td>
+      <td>{{item.des}}</td>
+      <td><button (click)="selected(i)" class="btnAddToCart">Selected</button></td>
+      <td><button (click)="deletedCrud(i)" class="btnAddToCart">Deleted</button></td>
+    </tr>
+  
+  </table>
