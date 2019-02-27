@@ -17,11 +17,11 @@
     <th>Action</th>
   </tr>
   <tr *ngFor="let item of products, let i = index">
-    <td>{{item.name}}</td>
-    <td><a routerLink="detail/{{i}}"><img src="{{item.image}}" height="100px" width="100px" alt=""></a> </td>
-    <td>{{formatNumber(item.price)}}</td>
-    <td>{{item.des}}</td>
-    <td><button (click) = "getSelectedProduct(i)">Addcart</button></td>
+    <td *ngIf="item">{{item.name}}</td>
+    <td *ngIf="item"><a routerLink="detail/{{i}}"><img src="{{item.image}}" height="100px" width="100px" alt=""></a> </td>
+    <td *ngIf="item">{{formatNumber(item.price)}}</td>
+    <td *ngIf="item">{{item.des}}</td>
+    <td *ngIf="item"><button (click) = "getSelectedProduct(i)">Addcart</button></td>
   </tr>
 </table>
 

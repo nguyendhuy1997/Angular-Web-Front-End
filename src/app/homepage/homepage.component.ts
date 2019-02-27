@@ -42,6 +42,7 @@ export class HomepageComponent implements OnInit {
       }
       localStorage.setItem('cart', JSON.stringify(temp));
       console.log(localStorage.getItem('cart'));
+      alert('Add Successfully');
     });
   
   }

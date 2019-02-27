@@ -32,17 +32,13 @@ export class RegisterComponent implements OnInit {
     });
   }
   onSubmit() {
-
-    console.log(this.username);
-    console.log(this.pass);
     firebase.database().ref('user/' + this.username).set({
       password: this.pass
     }, function(error) {
       if (error) {
         console.log('fail');
       } else {
-        alert('Register Successfuly')
-      
+        alert('Register successfully')
       }
     });
   }

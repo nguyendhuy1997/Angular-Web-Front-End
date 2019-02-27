@@ -1,0 +1,9 @@
+<h1>Detail Product</h1>
+
+<div *ngIf="detail" class="card">
+  <img src="{{detail.image}}" alt="Denim Jeans" style="width:100%">
+  <h1>{{detail.name}}</h1>
+  <p class="price">{{formatNumber(detail.price)}}</p>
+  <p>{{detail.des}}</p>
+  <p><button (click)="getSelectedProduct(id)">Add to Cart</button></p>
+</div>

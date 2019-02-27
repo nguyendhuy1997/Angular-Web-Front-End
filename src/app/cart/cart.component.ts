@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { ProductService } from '../product.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as firebase from 'firebase/app';
 @Component({
   providers: [HomepageComponent],
   selector: 'app-cart',
@@ -63,7 +64,24 @@ export class CartComponent implements OnInit {
     this.ProductService.getDetail(id);
   }
   onSubmit(formdata) {
-    console.log(formdata);
+    this.total = 0;
+    this.cart.forEach(element => {
+      this.total += element.price * element.sl;
+    });
+    var keyBill = firebase.database().ref().child('bill').push().key;
+    firebase.database().ref('bill/' + keyBill).set({
+      name: formdata.username,
+      address: formdata.address,
+      email:formdata.email,
+      total:this.total,
+    }, function(error) {
+      if (error) {
+        console.log('fail');
+      } else {
+       alert('Complete Payment');
+      }
+    });
+    
   }
 
 }

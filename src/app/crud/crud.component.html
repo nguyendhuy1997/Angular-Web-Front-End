@@ -17,15 +17,15 @@
       <th>Selected</th>
       <th>Deleted</th>
     </tr>
-    <tr *ngFor="let item of products,let i =index">
-      <td>{{item.name}}</td>
-      <td>
+    <tr  *ngFor="let item of products,let i =index" >
+      <td *ngIf="item">{{item.name}}</td>
+      <td *ngIf="item">
         <img src="{{item.image}}" alt="" style="width: 100px; height: 100px;">
       </td>
-      <td>{{item.price}}</td>
-      <td>{{item.des}}</td>
-      <td><button (click)="selected(i)" class="btnAddToCart">Selected</button></td>
-      <td><button (click)="deletedCrud(i)" class="btnAddToCart">Deleted</button></td>
+      <td *ngIf="item">{{item.price}}</td>
+      <td *ngIf="item">{{item.des}}</td>
+      <td *ngIf="item"><button (click)="selected(i)" class="btnAddToCart">Selected</button></td>
+      <td *ngIf="item"><button (click)="deletedCrud(i)" class="btnAddToCart">Deleted</button></td>
     </tr>
   
   </table>

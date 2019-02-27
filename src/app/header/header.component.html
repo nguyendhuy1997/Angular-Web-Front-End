@@ -1,18 +1,18 @@
 <body>
 
     <ul>
-      <li><a href="#home">Home</a></li>
-     
+      <li><a routerLink="">Home</a></li>
+      <li><a routerLink="crud">Crud</a></li>
       <ng-container *ngIf="user; else elseTemplate">
           <li><a>Hello {{user}} </a></li>
-          <li><a href="#" (click)="logout()">Logout</a></li>
+          <li><a  (click)="logout()">Logout</a></li>
       </ng-container>
       <ng-template #elseTemplate>
           <li><a routerLink="/register">Register</a></li>
           <li><a routerLink="/login">Login</a></li>
       </ng-template>
       
-      <li style="float:right"><a class="active" href="#about">CRUD</a></li>
+      <li style="float:right"><a class="active" routerLink="cart">Cart</a></li>
     </ul>
     
     </body>
